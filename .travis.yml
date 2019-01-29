@@ -11,5 +11,4 @@ addons:
       - builds/$(cat builds/LATEST_BUILD)
     target_paths:
       - /nginx/
-    s3_region:
-      - eu-west-2
+    s3_region: "eu-west-2"

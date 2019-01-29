@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/uclapi/nginx-build.svg?branch=master)](https://travis-ci.org/uclapi/nginx-build)
 # nginx-build
 Dockerised build environment for Nginx with Shibboleth and Clear Headers Plugins.
 

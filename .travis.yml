@@ -2,5 +2,5 @@ services:
   - docker
 
 script:
-  - build.sh
+  - ./build.sh
   - artifacts upload --target-paths builds/`cat LATEST_BUILD`

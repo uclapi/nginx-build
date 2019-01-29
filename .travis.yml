@@ -8,6 +8,6 @@ script:
 addons:
   artifacts:
     paths:
-      - $(cat builds/LATEST_BUILD)
+      - builds/$(cat builds/LATEST_BUILD)
     target_paths:
       - /nginx/

@@ -1,0 +1,6 @@
+# Exclude the entire builds directory except for the .keep file
+# .keep will preserve the directory in version control, and it us
+# used in get_build.sh to check that the builds directory is
+# mounted and available.
+/builds/*
+!/builds/.keep

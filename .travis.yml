@@ -1,14 +1,23 @@
 services:
-  - docker
-
+- docker
 script:
-  - chmod +x ./build.sh
-  - ./build.sh
-
+- chmod +x ./build.sh
+- "./build.sh"
 addons:
   artifacts:
     paths:
-      - builds/$(cat builds/LATEST_BUILD)
+    - builds/$(cat builds/LATEST_BUILD)
     target_paths:
-      - /nginx/
-    s3_region: "eu-west-2"
+    - "/nginx/"
+    s3_region: eu-west-2
+deploy:
+  provider: s3
+  access_key_id: AKIAJWTPBQA3P5UTERIQ
+  secret_access_key:
+    secure: qJjJAEwZ9DZI7FP5JZD0IqSZx2unPV0P6riUg0Aptxu3I3OR+05sERtqF6a9OrUuT844Bqr28TLmKq7/DSYjuAvHn9x95hIDsZ08dPgAbqSfACSDwOVINDDtjLQROGSBP0az7OFVa33SkIYnMdi3O8ddFg+N2QZ/JXK3r05GfYQSn3ISpRmjgQIHQPpttAyMt1kdLOhzqTaVXDvMqCleEZxvg7On2P5clvYbofA9YReS/zhBqbe8F4OZkgkOZ5kNgUeMO9V442vQUAayYju+BB6JgU086fiiRESju+Wk36rbX9ZF4e4d2HEbF5niIsVshDVjek2yF0UsVHDWbNR4vB3WAANPeKmqNfPbfuhJmaDGU3ZLIZVN+bPvzH76rPdeG5YIM3EnOx5xsuObWT6zt9CfRYm4BEpeRxtBdYSgTMAq+EsetiK1I5fJFAN239+bivq0Eis29WK9svxTW+HWs1WLxMaVAUdhHLkHwhQVAGt7ZtiS9zjg9Ufquq9xbFjaXf3J1aqHwOpdM4XAUoJGtE/A/QZorrAAax1O0R/7RWKSVkDtWBPIPQaGS5bOMjNdpNd3eaGRHer/ZsrTLRdISmg7JA1RWY9Kari0nHRbBIA3FKeRPbqUHFXo98LIiHabWO44Ur/WYjdNT3gg27HIFOFbtk+TXpVagYrIsKcm/YM=
+  bucket: uclapi-dist
+  local-dir: builds/
+  upload-dir: "/nginx/"
+  acl: public_read
+  on:
+    repo: uclapi/nginx-build

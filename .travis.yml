@@ -1,0 +1,6 @@
+services:
+  - docker
+
+script:
+  - build.sh
+  - artifacts upload --target-paths builds/`cat LATEST_BUILD`

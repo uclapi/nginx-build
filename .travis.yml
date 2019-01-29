@@ -2,5 +2,12 @@ services:
   - docker
 
 script:
+  - chmod +x ./build.sh
   - ./build.sh
-  - artifacts upload --target-paths builds/`cat LATEST_BUILD`
+
+addons:
+  artifacts:
+    paths:
+      - $(cat builds/LATEST_BUILD)
+    target_paths:
+      - /nginx/

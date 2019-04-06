@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 #################################
 #### Control versioning here ####
 #################################
-ENV NGINX_VERSION 1.15.8
+ENV NGINX_VERSION 1.15.10
 
 #################################
 ####### The build process #######
